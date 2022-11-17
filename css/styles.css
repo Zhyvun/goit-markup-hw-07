@@ -1,4 +1,4 @@
-/* -- Загальне -- */
+/* -- TOTAL -- */
 :root {
   --color-basic: #212121;
   --color-minor: #757575;
@@ -16,15 +16,6 @@
 
   --timing-effect: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* При підключенні "normslize" ця фукнкція прописується */
-/* html {
-  box-sizing: border-box;
-}
-*,
-*::before *::after {
-  box-sizing: inherit;
-} */
 
 .container {
   width: 100%;
@@ -56,8 +47,8 @@
 }
 
 /* прибираємо стилі з "Ul" (закоментував бо знайшов більш компактний варіант)*/
-/* .site-nav, .heading-list, .promo, .contacts, .team-list, .portfolio-button,
-.portfolio-title {list-style: none;} */
+/* .menu, .activity__list, .promo, .contacts, .team__list, .portfolio__button,
+.portfolio__title {list-style: none;} */
 ul {
   list-style: none;
 }
@@ -88,6 +79,7 @@ body {
 }
 
 .logo {
+  display: block;
   padding: 24px 0px;
   text-decoration: none;
   color: var(--color-current);
@@ -97,45 +89,37 @@ body {
   letter-spacing: 0.03em;
 }
 
-.logo > span {
-  padding: 24px 0px;
+.logo--black {
   color: #000000;
 }
 
-.link {
-  display: block;
-  padding: 32px 0px;
-  color: var(--color-basic);
+.button {
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: var(--color-bacground-basic);
+  background-color: var(--color-current);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+}
+
+/* Скасовуємо підкреслення у посилань */
+.nondecoration,
+.decoration-more {
   text-decoration: none;
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  transition: color 250ms var(--timing-effect);
+  font-style: normal;
 }
 
-.current {
-  position: relative;
-  display: flex;
-  color: var(--color-current);
-}
-
-.current::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background-color: currentColor;
-}
-
-/* header*/
-
-.page-header {
+/*----------------------*/
+/* HEADER */
+.header-page {
   border-bottom: 1px solid #ececec;
 }
 
-.header-container {
+.header-page__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -146,7 +130,7 @@ body {
   align-items: center;
 }
 
-.site-nav {
+.header-menu {
   display: flex;
   justify-content: center;
   flex-grow: 1;
@@ -154,23 +138,54 @@ body {
   margin-left: 50px;
 }
 
-.site-nav a {
+.header-menu__item {
+  display: block;
   padding: 32px 0px;
+  color: var(--color-basic);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  transition: color 250ms var(--timing-effect);
 }
 
-.site-nav a:hover,
-.site-nav a:focus {
+.header-menu__item:hover,
+.header-menu__item:focus {
   color: var(--color-current);
 }
 
-/* Скасовуємо підкреслення у посилань */
-.decoration,
-.decoration-more {
-  text-decoration: none;
-  font-style: normal;
+.header-contacts {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 50px;
 }
 
-.contacts {
+.header-contacts__icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.header-menu__item--current {
+  position: relative;
+  display: flex;
+  color: var(--color-current);
+}
+
+.header-menu__item--current::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: currentColor;
+}
+
+.header-contacts__link {
+  display: block;
+  padding: 32px 0px;
   color: var(--color-minor);
   font-weight: 500;
   line-height: 1.14;
@@ -178,46 +193,20 @@ body {
   transition: color 250ms var(--timing-effect);
 }
 
-.contacts-header {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 50px;
-}
-
-.contacts-header .contacts {
-  display: block;
-  padding: 32px 0px;
-}
-
-.contacts:hover,
-.contacts:focus {
+.header-contacts__link:hover,
+.header-contacts__link:focus {
   color: var(--color-current);
 }
 
-.icon-contacts {
-  vertical-align: middle;
-  margin-right: 10px;
-  fill: currentColor;
-}
-
-/* main */
-
-/* Прибираємо Flex контейнер і Центруємо кнопу за допомогою маржинів */
-/* .hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 200px 0px;
-} */
+/*------------------*/
+/*HERO*/
 
 .hero {
   padding: 200px 0px;
   background-color: var(--color-brand);
 }
 
-.picture {
+.hero__picture {
   max-width: 1600px;
   min-height: 600px;
   margin-right: auto;
@@ -229,7 +218,7 @@ body {
   background-size: cover;
 }
 
-.hero-title {
+.hero__title {
   width: 696px;
   margin-top: 0;
   margin-bottom: 30px;
@@ -244,55 +233,32 @@ body {
   letter-spacing: 0.06em;
 }
 
-/* Button */
-.primary-button {
+.hero__button {
   display: block;
   margin-right: auto;
   margin-left: auto;
   padding: 10px 32px;
   min-width: 216px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  color: var(--color-bacground-basic);
-  background-color: var(--color-current);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   transition: color 250ms var(--timing-effect), background-color 250ms var(--timing-effect),
     box-shadow 250ms var(--timing-effect);
 }
 
-.primary-button:hover,
-.primary-button:focus {
+.hero__button:hover,
+.hero__utton:focus {
   background-color: var(--color-current-active);
 }
-
+/*--------------------------*/
+/* PROMO */
 .promo {
   display: flex;
   gap: 30px;
 }
 
-.promo-list {
+.promo__list {
   width: calc((100% - 3 * 30px) / 4);
 }
-/* Не вийшло (як показував Репета) розмістити Іконку (ніззя достукатись до іконки в спрайті) */
-/* .promo-list::before {
-  content: '';
-  display: block;
-  height: 120px;
-  margin-bottom: 30px;
-  background-color: var(--color-bacground-body);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  outline: 1px solid #000000;
-} */
 
-.promo-icons {
+.promo__icons {
   display: flex;
   height: 120px;
   margin-bottom: 30px;
@@ -301,7 +267,7 @@ body {
   align-items: center;
 }
 
-.promo-title {
+.promo__title {
   margin-bottom: 10px;
   color: var(--color-basic);
   text-transform: uppercase;
@@ -310,13 +276,16 @@ body {
   line-height: 1.14;
   letter-spacing: 0.03em;
 }
-.promo-text {
+
+.promo__text {
   font-weight: 400;
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
 
-.heading {
+/*---------------------------*/
+
+.title {
   margin-bottom: 50px;
   color: var(--color-basic);
   font-size: 36px;
@@ -326,20 +295,23 @@ body {
   text-align: center;
 }
 
-.heading-list {
+/*---------------------------*/
+/*ACTIVITY*/
+
+.activity__list {
   display: flex;
   align-items: center;
   gap: 30px;
   justify-content: center;
 }
 
-.heading-content {
+.activity__content {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.heading-content::before {
+.activity__content::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -348,7 +320,7 @@ body {
   background-color: rgba(47, 48, 58, 0.8);
 }
 
-.heading-label {
+.activity__label {
   position: absolute;
   bottom: 0px;
   padding: 27px 0;
@@ -359,29 +331,31 @@ body {
   text-transform: uppercase;
   color: var(--color-bacground-basic);
 }
+/*--------------------------------*/
+/*TEAM*/
 
-.heading-list > .team-body {
+.team {
   background-color: var(--color-bacground-body);
 }
 
-.team-list {
+.team__list {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.team-list > li {
+.team__list > li {
   background-color: var(--color-bacground-basic);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
-.team-caption {
+.team__row {
   padding: 30px 0px 30px;
 }
 
-.team-caption > h3 {
+.team__person {
   margin-bottom: 10px;
   color: var(--color-basic);
   font-weight: 500;
@@ -391,7 +365,7 @@ body {
   text-align: center;
 }
 
-.team-caption p {
+.team__function {
   color: var(--color-minor);
   font-weight: 400;
   font-size: 16px;
@@ -399,15 +373,17 @@ body {
   letter-spacing: 0.03em;
   text-align: center;
 }
+/*--------------------------*/
+/*SOC-LIST*/
 
-.soc-list {
+.soc-list__row {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 16px;
 }
 
-.soc-link {
+.soc-list__link {
   width: 44px;
   height: 44px;
   display: flex;
@@ -418,26 +394,29 @@ body {
   transition: color 250ms var(--timing-effect), background-color 250ms var(--timing-effect);
 }
 
-.soc-icon {
+.soc-list__icon {
   fill: currentColor;
   width: 20px;
   height: 20px;
 }
 
-.soc-link:hover,
-.soc-link:focus {
+.soc-list__link:hover,
+.soc-list__link:focus {
   background-color: var(--color-current);
   color: var(--color-bacground-basic);
 }
 
-.clients-list {
+/*--------------------------*/
+/*CLIENTS*/
+
+.clients {
   display: flex;
   gap: 30px;
 }
-.clients-item {
+.clients__item {
   width: calc((100% - 5 * 30px) / 6);
 }
-.clients-link {
+.clients__link {
   width: 100%;
   height: 92px;
   border: 1px solid var(--color-solid-other);
@@ -448,31 +427,32 @@ body {
   transition: border-color 250ms var(--timing-effect);
 }
 
-.icon-clients {
+.clients__icon {
   fill: var(--color-solid-other);
   transition: fill 250ms var(--timing-effect);
 }
 /* інший варіант виконання hover*/
-.clients-link:hover,
-.clients-link:focus {
+.clients__link:hover,
+.clients__link:focus {
   border-color: var(--color-current);
 }
 
-.clients-link:hover .icon-clients,
-.clients-link:focus .icon-clients {
+.clients__link:hover .clients__icon,
+.clients__link:focus .clients__icon {
   fill: var(--color-current);
 }
 
-/* portfolio */
+/*--------------------------*/
+/* PORTFOLIO */
 
-.portfolio-button {
+.portfolio {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-bottom: 50px;
 }
 
-.portfolio-button button {
+.portfolio__button {
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
@@ -487,40 +467,40 @@ body {
     box-shadow 250ms var(--timing-effect);
 }
 
-.portfolio-button button:first-child {
+.portfolio__button:first-child {
   padding: 6px 25px;
 }
 
-.portfolio-button button:hover,
-.portfolio-button button:focus {
+.portfolio__button:hover,
+.portfolio__button:focus {
   color: var(--color-bacground-basic);
   background-color: var(--color-current);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-.portfolio-title {
+.portfolio-list {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
-.portfolio-elements {
+.portfolio-list__elements {
   width: calc((100% - 2 * 30px) / 3);
 }
 
-.portfolio-thumb {
+.portfolio-list__thumb {
   position: relative;
   overflow: hidden;
 }
-.portfolio-link {
+.portfolio-list__link {
   text-decoration: none;
   display: block;
   transition: box-shadow 250ms var(--timing-effect);
 }
 
-.portfolio-overlay {
+.portfolio-list__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -531,7 +511,7 @@ body {
   transition: transform 250ms var(--timing-effect);
 }
 
-.portfolio-text {
+.portfolio-list__text {
   margin: 0;
   font-size: 18px;
   line-height: 1.56;
@@ -541,24 +521,24 @@ body {
   padding: 63px 24px;
 }
 
-.portfolio-link:hover,
-.portfolio-link:focus {
+.portfolio-list__link:hover,
+.portfolio-list__link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.portfolio-link:hover .portfolio-overlay,
-.portfolio-link:focus .portfolio-overlay {
+.portfolio-list__link:hover .portfolio-list__overlay,
+.portfolio-list__link:focus .portfolio-list__overlay {
   opacity: 1;
   transform: translateY(0);
 }
 
-.portfolio-caption {
+.portfolio-list__caption {
   padding: 20px 18px 20px 24px;
   border: 1px solid var(--color-solid);
   border-top: none;
 }
 
-.portfolio-caption > h2 {
+.portfolio-list__name {
   color: var(--color-basic);
   font-weight: 700;
   font-size: 18px;
@@ -567,114 +547,81 @@ body {
   margin-bottom: 4px;
 }
 
-.portfolio-caption > p {
+.portfolio-list__type {
   color: var(--color-minor);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
 }
-/*Не знаю чи потрібно чи ні, у макеті при наводженні є підкреслювання*/
+/*--------------------------*/
+/* FOOTER */
 
-/* .portfolio-title h2:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--color-bacground-body);
+.footer {
+  padding: 60px 0px;
+  background-color: var(--color-brand);
 }
 
-.portfolio-title p:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--color-bacground-body);
-} */
+.footer__logo {
+  padding: 0px;
+  margin-bottom: 20px;
+}
 
-/* footer */
+.logo--white {
+  color: var(--color-bacground-basic);
+}
 
-.contacts-item > a {
+.footer__row {
+  display: flex;
+  gap: 93px;
+  align-items: baseline;
+}
+
+.footer__title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-bacground-basic);
+  margin-bottom: 20px;
+}
+
+.footer__soc .soc-list__link {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--timing-effect);
+}
+
+.footer__soc .soc-list__icon {
+  fill: var(--color-bacground-basic);
+}
+
+.footer__soc .soc-list__link:hover,
+.footer__soc .soc-list__link:focus {
+  background-color: var(--color-current);
+}
+
+.contacts__unit {
+  display: block;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
 
-a.decoration-more {
+.contacts__unit--white {
   color: var(--color-bacground-basic);
 }
 
-.footer-contacts .logo {
-  padding: 0px 0px;
-}
-
-.footer-list {
-  display: flex;
-  gap: 93px;
-  align-items: baseline;
-}
-
-.footer-soc > p {
-  color: var(--color-bacground-basic);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.footer-soc > ul {
-  margin-top: 20px;
-}
-
-.footer-soc .soc-link {
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color 250ms var(--timing-effect);
-}
-
-.footer-soc .soc-icon {
-  fill: var(--color-bacground-basic);
-}
-
-.footer-soc .soc-link:hover,
-.footer-soc .soc-link:focus {
-  background-color: var(--color-current);
-}
-
-.page-footer {
-  padding: 60px 0px;
-  background-color: var(--color-brand);
-}
-.page-footer .logo {
-  display: block;
-  margin-bottom: 20px;
-}
-
-.contacts-item > a {
-  display: block;
-}
-
-.contacts-item:not(:last-child) {
+.contacts__item:not(:last-child) {
   margin-bottom: 9px;
 }
 
-.page-footer span {
-  color: var(--color-bacground-basic);
-}
-/*MAILING*/
-
-.mailing-form {
+.mailing__form {
   display: flex;
 }
 
-.mailing-insert {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--color-bacground-basic);
-}
-
-.mailing-input {
+.mailing__input {
   padding: 15px;
   width: 358px;
   color: var(--color-bacground-basic);
@@ -684,7 +631,7 @@ a.decoration-more {
   border-radius: 4px;
 }
 
-.mailing-button {
+.mailing__button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -704,14 +651,26 @@ a.decoration-more {
   transition: background-color 250ms var(--timing-effect);
 }
 
-.mailing-icon {
+.mailing__icon {
   fill: var(--color-bacground-basic);
   margin-left: 10px;
 }
 
+/*-------------------------*/
 /* MODAL FORM*/
 
-.modal-heading {
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  padding: 40px;
+  background-color: var(--color-bacground-basic);
+}
+
+.modal__heading {
   margin-bottom: 12px;
   text-align: center;
   font-size: 20px;
@@ -738,18 +697,7 @@ a.decoration-more {
   pointer-events: none;
 }
 
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 528px;
-  height: 581px;
-  padding: 40px;
-  background-color: var(--color-bacground-basic);
-}
-
-.modal-close-button {
+.modal-button__close {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -765,17 +713,17 @@ a.decoration-more {
   cursor: pointer;
 }
 
-.modal-close-button :focus,
-.modal-close-button :hover {
+.modal-button__close:focus,
+.modal-button__close:hover {
   fill: var(--color-current);
 }
 
-.form-box {
+.modal-box {
   position: relative;
   margin-bottom: 10px;
 }
 
-.form-label {
+.modal-box__label {
   display: block;
   margin-bottom: 4px;
   font-weight: 400;
@@ -784,7 +732,7 @@ a.decoration-more {
   letter-spacing: 0.01em;
 }
 
-.form-input {
+.modal-box__input {
   width: 100%;
   padding: 14px 14px 14px 32px;
   border: 1px solid var(--color-solid-border);
@@ -795,7 +743,7 @@ a.decoration-more {
   transition: border 250ms var(--timing-effect);
 }
 
-.form-icon {
+.modal-box__icon {
   position: absolute;
   left: 15px;
   top: 50%;
@@ -805,8 +753,8 @@ a.decoration-more {
   transition: fill 250ms var(--timing-effect);
 }
 
-.form-input:hover,
-.form-input:focus {
+.modal-box__input:hover,
+.modal-box__input:focus {
   border-color: var(--color-solid-border-active);
 }
 /* Шось не пішов у мене цей код не працює focus-within */
@@ -815,12 +763,12 @@ a.decoration-more {
   fill: var(--color-solid-border-active);
 } */
 
-.form-input:hover + .form-icon,
-.form-input:focus + .form-icon {
+.modal-box__input:hover + .modal-box__icon,
+.modal-box__input:focus + .modal-box__icon {
   fill: var(--color-solid-border-active);
 }
 
-.form-textarea {
+.modal-box__textarea {
   display: block;
   width: 100%;
   height: 120px;
@@ -831,8 +779,8 @@ a.decoration-more {
   transition: border 250ms var(--timing-effect);
 }
 
-.form-textarea:hover,
-.form-textarea:focus {
+.modal-box__textarea:hover,
+.modal-box__textarea:focus {
   border-color: var(--color-solid-border-active);
 }
 
@@ -841,7 +789,7 @@ a.decoration-more {
   margin-bottom: 30px;
 }
 
-.checkbox-label {
+.modal-checkbox__label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -851,7 +799,7 @@ a.decoration-more {
   color: var(--color-minor);
 }
 
-.checkbox-icon {
+.modal-checkbox__icon {
   display: block;
   width: 16px;
   height: 15px;
@@ -863,19 +811,19 @@ a.decoration-more {
   transition: fill 250ms var(--timing-effect);
 }
 
-.checkbox-input:checked + .checkbox-icon {
+.modal-checkbox__input:checked + .modal-checkbox__icon {
   border: none;
   background-color: var(--color-current);
 }
 
-.checkbox-terms {
+.modal-checkbox__terms {
   display: inline-block;
   margin-left: 10px;
   text-decoration: underline;
   color: var(--color-current);
 }
 
-.modal-button-send {
+.modal-button__send {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -883,22 +831,11 @@ a.decoration-more {
   height: 50px;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: var(--color-bacground-basic);
-  background-color: var(--color-current);
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
   transition: background-color 250ms var(--timing-effect);
 }
 
-.modal-button-send:focus,
-.modal-button-send:hover {
+.modal-button__send:focus,
+.modal-button__send:hover {
   background-color: var(--color-current-active);
 }
 
